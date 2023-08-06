@@ -45,12 +45,59 @@ function getAllHeights(array) {
 console.log(characters.map(getAllHeights))
 
 //3. Get array of objects with just name and height properties
+function namesAndHeights(array) {
+    return { name: array.name, height: array.height };
+}
+
+console.log(characters.map(namesAndHeights));
+
 //4. Get array of all first names
+function firstNames(array) {
+    return array.name.split(" ")[0];
+}
+
+console.log(characters.map(firstNames));
+
 
 //***REDUCE***
 //1. Get total mass of all characters
+function totalMass(accumulator, array) {
+    return accumulator + array.mass;
+}
+
+console.log(`The total mass is: ${characters.reduce(totalMass, 0)}.`);
+
 //2. Get total height of all characters
+function totalHeight(accumulator, array) {
+    return accumulator + array.height;
+}
+
+console.log(`The total height is: ${characters.reduce(totalHeight, 0)}.`);
+
+
 //3. Get total number of characters by eye color
+function charByEyeColor(prev, array) {
+    if (array.eye_color in prev) {
+        prev[array.eye_color] += 1;
+    } else {
+        prev[array.eye_color] = 1;
+    }
+    return prev;
+};
+// console.log(characters.reduce(charByEyeColor, {}));
+console.log(`The total number of characters by eye color is: ${characters.reduce(charByEyeColor, {})}.`);
+
+
+// var charactersEyeColors = characters.reduce(function (prev, character) {
+//     if (character.eye_color in prev) {
+//         prev[character.eye_color] += 1;
+//     } else {
+//         prev[character.eye_color] = 1;
+//     }
+//     return prev;
+// }, {});
+// console.log(charactersEyeColors);
+
 //4. Get total number of characters in all the character names
 
 //***FILTER***
