@@ -31,7 +31,19 @@ const characters = [
 
 //***MAP***
 //1. Get array of all names
+function getAllNames(array) {
+    return array.name;
+};
+
+console.log(characters.map(getAllNames))
+
 //2. Get array of all heights
+function getAllHeights(array) {
+    return array.height;
+};
+
+console.log(characters.map(getAllHeights))
+
 //3. Get array of objects with just name and height properties
 //4. Get array of all first names
 
